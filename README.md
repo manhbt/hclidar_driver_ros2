@@ -7,18 +7,21 @@ hclidar_driver_ros2 is a new ros package, which is designed to gradually become 
 
 ## Clone hclidar_driver_ros2
 
-1. Clone hclidar_driver_ros2 package for github : 
+1. Clone hclidar_driver_ros2 package for github :
 
-   `git clone https://github.com/camsense/hclidar_driver_ros2.git hclidar_ros2_ws/src/hclidar_driver_ros2`
+   `git clone git@github.com:manhbt/hclidar_driver_ros2.git ros2_ws/src/hclidar_driver_ros2`
+
+Note: for older ubuntu version you should select the correct tags.
+For example: if you want to use with ubuntu 18.04
+   `git clone -b v18.04 git@github.com:manhbt/hclidar_driver_ros2.git ros2_ws/src/hclidar_driver_ros2`
 
 2. Build hclidar_driver_ros2 package :
 
    ```
-   cd hclidar_ros2_ws
+   cd ros2_ws
    colcon build --symlink-install
    ```
    Note: install colcon [see](https://index.ros.org/doc/ros2/Tutorials/Colcon-Tutorial/#install-colcon)
-
 
 
 3. Package environment setup :
@@ -28,7 +31,7 @@ hclidar_driver_ros2 is a new ros package, which is designed to gradually become 
     Note: Add permanent workspace environment variables.
     It's convenientif the ROS2 environment variables are automatically added to your bash session every time a new shell is launched:
     ```
-    $echo "source ~/hclidar_ros2_ws/install/setup.bash" >> ~/.bashrc
+    $echo "source ~/ros2_ws/install/setup.bash" >> ~/.bashrc
     $source ~/.bashrc
     ```
 4. Confirmation
@@ -37,16 +40,16 @@ hclidar_driver_ros2 is a new ros package, which is designed to gradually become 
     $ printenv | grep -i ROS
     ```
     You should see something similar to:
-        `OLDPWD=/home/konyun/hclidar_ros2_ws/install`
+        `OLDPWD=/home/manhbt/ros2_ws/install`
 
 
-	
+
 ## Configure LiDAR [paramters](params/hclidar.yaml)
 ```
 hclidar_driver_ros2_node:
   ros__parameters:
     frame_id: laser_frame
-	lidar_model: "X2M"
+	lidar_model: "X1"
 	port: /dev/ttyUSB0
     ignore_array: ""
     baudrate: 115200
@@ -63,32 +66,35 @@ hclidar_driver_ros2_node:
     support_motor_dtr: false
     angle_max: 3.1415926
     angle_min: -3.1415926
-    range_max: 64.0
-    range_min: 0.01
+    range_max: 8.0
+    range_min: 0.08
     frequency: 10.0
     invalid_range_is_inf: false
 ```
 
 ## Run hclidar_driver_ros2
 
+##### Make sure you have the read/write permission to your serial port (/dev/ttyUSB0 for example) before launch the lidar driver
+   `sudo chmod 666 /dev/ttyUSB0`
+
 ##### Run hclidar_driver_ros2 using launch file
 
-The command format is : 
+The command format is :
 
  `ros2 launch hclidar_driver_ros2 [launch file].py`
 
 1. Connect LiDAR uint(s).
    ```
-   ros2 launch hclidar_driver_ros2 hclidar_launch.py 
+   ros2 launch hclidar_driver_ros2 hclidar_launch.py
    ```
-   or 
+   or
 
    ```
-   launch $(ros2 pkg prefix hclidar_driver_ros2)/share/hclidar_driver_ros2/launch/hclidar.py 
+   launch $(ros2 pkg prefix hclidar_driver_ros2)/share/hclidar_driver_ros2/launch/hclidar.py
    ```
-2. RVIZ 
+2. RVIZ
    ```
-   ros2 launch hclidar_driver_ros2 hclidar_launch_rviz.py 
+   ros2 launch hclidar_driver_ros2 hclidar_launch_rviz.py
    ```
 
 
@@ -99,9 +105,9 @@ The command format is :
 
 #####  Launch file introduction
 
-The driver offers users a wealth of options when using different launch file. The launch file directory    
+The driver offers users a wealth of options when using different launch file. The launch file directory
 
-is `"hclidar_ros2_ws/src/hclidar_driver_ros2/launch"`. All launch files are listed as below : 
+is `"ros2_ws/src/hclidar_driver_ros2/launch"`. All launch files are listed as below :
 
 | launch file               | features                                                     |
 | ------------------------- | ------------------------------------------------------------ |
