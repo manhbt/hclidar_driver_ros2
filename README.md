@@ -9,11 +9,15 @@ hclidar_driver_ros2 is a new ros package, which is designed to gradually become 
 
 1. Clone hclidar_driver_ros2 package for github :
 
-   `git clone git@github.com:manhbt/hclidar_driver_ros2.git ros2_ws/src/hclidar_driver_ros2`
+   ```
+   git clone git@github.com:manhbt/hclidar_driver_ros2.git ros2_ws/src/hclidar_driver_ros2
+   ```
 
 Note: for older ubuntu version you should select the correct tags.
 For example: if you want to use with ubuntu 18.04
-   `git clone -b v18.04 git@github.com:manhbt/hclidar_driver_ros2.git ros2_ws/src/hclidar_driver_ros2`
+   ```
+   git clone -b v18.04 git@github.com:manhbt/hclidar_driver_ros2.git ros2_ws/src/hclidar_driver_ros2
+   ```
 
 2. Build hclidar_driver_ros2 package :
 
@@ -75,7 +79,9 @@ hclidar_driver_ros2_node:
 ## Run hclidar_driver_ros2
 
 ##### Make sure you have the read/write permission to your serial port (/dev/ttyUSB0 for example) before launch the lidar driver
-   `sudo chmod 666 /dev/ttyUSB0`
+   ```
+   sudo chmod 666 /dev/ttyUSB0
+   ```
 
 ##### Run hclidar_driver_ros2 using launch file
 
