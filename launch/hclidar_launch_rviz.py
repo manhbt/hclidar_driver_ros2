@@ -36,22 +36,26 @@ def generate_launch_description():
                                                share_dir, 'params', 'hclidar.yaml'),
                                            description='FPath to the ROS2 parameters file to use.')
 
-    driver_node = LifecycleNode(package='hclidar_driver_ros2',
-                                node_executable='hclidar_driver_ros2_node',
-                                node_name='hclidar_driver_ros2_node',
-                                output='screen',
-                                emulate_tty=True,
-                                parameters=[parameter_file],
-                                node_namespace='/',
-                                )
-    tf2_node = Node(package='tf2_ros',
-                    node_executable='static_transform_publisher',
-                    node_name='static_tf_pub_laser',
-                    arguments=['0', '0', '0.02','0', '0', '0', '1','base_link','laser_frame'],
-                    )
+    driver_node = LifecycleNode(
+        package='hclidar_driver_ros2',
+        executable='hclidar_driver_ros2_node',    # Sửa từ node_executable
+        name='hclidar_driver_ros2_node',          # Sửa từ node_name
+        output='screen',
+        emulate_tty=True,
+        parameters=[parameter_file],
+        namespace='',                             # Sửa từ node_namespace và để trống hoặc '/'
+        )
+
+    tf2_node = Node(
+    package='tf2_ros',
+    executable='static_transform_publisher',  # Sửa từ node_executable
+    name='static_tf_pub_laser',               # Sửa từ node_name
+    arguments=['0', '0', '0.02','0', '0', '0', '1','base_link','laser_frame'],
+    )
+    
     rviz2_node = Node(package='rviz2',
-                    node_executable='rviz2',
-                    node_name='rviz2',
+                    executable='rviz2',
+                    name='rviz2',
                     arguments=['-d', rviz_config_file],
                     )
 

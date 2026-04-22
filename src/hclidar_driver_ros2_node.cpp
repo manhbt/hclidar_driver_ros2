@@ -160,24 +160,24 @@ int rtn = 0;
     std::string strPort;
     strPort = "/dev/ttyUSB" + std::to_string(iPort);              // For Linux OS
 
-    node->declare_parameter("port");
+    node->declare_parameter("port", "/dev/ttyUSB0");
     node->get_parameter("port", strPort);
     printf( "Port=%s\n" , strPort.c_str());
 
     int iBaud = 115200;
-    node->declare_parameter("baudrate");
+    node->declare_parameter("baudrate", 115200);
     node->get_parameter("baudrate", iBaud);
     printf( "baudrate=%d\n" , iBaud);
 
     //std::string strLidarModel = "X2M";
-    std::string strLidarModel = "X2M";
-    node->declare_parameter("lidar_model");
+    std::string strLidarModel = "X1";
+    node->declare_parameter("lidar_model", strLidarModel);
     node->get_parameter("lidar_model", strLidarModel);
     printf( "strLidarModel=%s\n" , strLidarModel.c_str());
 
 
     std::string frame_id = "laser_frame";
-    node->declare_parameter("frame_id");
+    node->declare_parameter("frame_id", "laser_frame");
     node->get_parameter("frame_id", frame_id);
     printf( "frame_id=%s\n" , frame_id.c_str());
 
@@ -215,21 +215,21 @@ int rtn = 0;
 
   
   float angle_max = 3.141592;
-  node->declare_parameter("angle_max");
+  node->declare_parameter("angle_max", 3.1415926f);
   node->get_parameter("angle_max", angle_max);
 
   float angle_min = -3.141592;
-  node->declare_parameter("angle_min");
+  node->declare_parameter("angle_min", -3.1415926f);
   node->get_parameter("angle_min", angle_min);
 
   printf( "Main: angle_min=%f\n" , angle_min );
 
   float range_max = 10.f;
-  node->declare_parameter("range_max");
+  node->declare_parameter("range_max", 8.0f);
   node->get_parameter("range_max", range_max);
 
   float range_min = 0.1f;
-  node->declare_parameter("range_min");
+  node->declare_parameter("range_min", 0.08f);
   node->get_parameter("range_min", range_min);
 
 
