@@ -1,10 +1,8 @@
 # 1. Hướng dẫn kết nối Camsense X1/X2
 
 Camsense X1/X2 là lidar giá rẻ thường được trang bị trên các dòng robot hút bụi nội địa của Trung Quốc như 360, Midea,...
-Về thông số kỹ thuật thì X2 là bản nâng cấp nhẹ của X1 với tần số quét cao hơn (khoảng 3kHz so với 2.08kHz của X1), do vậy driver này dùng được cho cả X1 và X2 (và có thể dùng cho cả X1M/X2Mm, tuy nhiên tác giả chưa có mẫu test thử)
-<img src="images/x1.jpg" width="500"> <img src="images/x2.jpg" width="335">
 
-Cả hai đều sử dụng giao tiếp UART (với baudrate cố định 115200-8-N-1) để gửi dữ liệu liên tục qua chân Tx.
+Chúng đều sử dụng giao tiếp UART (với baudrate cố định 115200-8-N-1) để gửi dữ liệu liên tục qua chân Tx.
 
 Có thể kết nối trực tiếp với MCU (STM32, ESP32, PIC, AVR,...) hoặc với PC hoặc máy tính nhúng SBC (như Jetson, Raspberry pi, ...) thông qua module chuyển đồi USB-UART theo sơ đồ như sau:
 | Camsense X1/X2 Pin  | MCU pin                   |  Module chuyển đổi USB-UART
@@ -15,9 +13,9 @@ Có thể kết nối trực tiếp với MCU (STM32, ESP32, PIC, AVR,...) hoặ
 
 Tuy nhiên trong khuôn khổ repo này chỉ đề cập đến việc kết nối Camsense X1/X2 với PC hoặc máy tính nhúng SBC (như Jetson, Raspberry pi, ...)
 
-***Chú ý***
-
-*Sử dụng module chuyển đổi USB-UART như CP2102, FTDI232, CH340 rất phổ biến, có thể tìm mua với giá dao động từ 15-40k từ các shop linh kiện điện từ hoặc sàn thương mại điện tử. Trong bài viết này minh họa sử dụng với module FTDI232.*
+Chú ý:
+- Sử dụng module chuyển đổi USB-UART như CP2102, FTDI232, CH340 rất phổ biến, có thể tìm mua với giá dao động từ 15-40k từ các shop linh kiện điện từ hoặc sàn thương mại điện tử
+Trong bài viết này minh họa sử dụng với module FTDI232,
 
 ## 1.1. Kết nối Camsense X1 với PC/SBC
 
