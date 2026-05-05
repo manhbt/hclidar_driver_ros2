@@ -158,7 +158,7 @@ Cú pháp lệnh:
 
 Vì đây là bản driver được port từ driver ROS1 nên cần chỉnh lại thông số Reliability Policy sang Best Effort để xem được scan data trên Rviz như hình minh họa sau:
 
-<img src="images/rviz2_cfg.jpg" width="900">
+<img src="images/rviz2_cfg.JPG">
 
 ## 3.3. Xem dữ liệu topic scan
    ```
