@@ -6,7 +6,7 @@ Về thông số kỹ thuật thì X2 là bản nâng cấp nhẹ của X1 với
 
 Vì vậy driver này dùng được cho cả X1 và X2 (và có thể dùng cho cả X1M/X2M - bản mid-range của X1/X2, tuy nhiên tác giả chưa điều kiện test thử)
 
-<img src="images/x1.jpg" width="500"> <img src="images/x2.jpg" width="335">
+<img src="images/x1.jpg" width="400"> <img src="images/x2.jpg" width="270">
 
 Cả hai đều sử dụng giao tiếp UART (với baudrate cố định 115200-8-N-1) để gửi dữ liệu liên tục qua chân Tx.
 
@@ -153,6 +153,12 @@ Cú pháp lệnh:
    ```
    ros2 launch hclidar_driver_ros2 hclidar_launch_rviz.py
    ```
+
+***Lưu ý:***
+
+Vì đây là bản driver được port từ driver ROS1 nên cần chỉnh lại thông số Reliability Policy sang Best Effort để xem được scan data trên Rviz như hình minh họa sau:
+
+<img src="images/rviz2_cfg.jpg" width="900">
 
 ## 3.3. Xem dữ liệu topic scan
    ```
